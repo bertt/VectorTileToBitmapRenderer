@@ -11,7 +11,7 @@ using GL = OpenTK.Graphics.ES11.GL;
 using MatrixMode = OpenTK.Graphics.ES11.MatrixMode;
 using StringName = OpenTK.Graphics.ES11.StringName;
 
-namespace BruTile.Samples.VectorTileToBitmap
+namespace VectorTileToBitmapRenderer
 {
     public class GeoJSONToOpenTKRenderer
     {

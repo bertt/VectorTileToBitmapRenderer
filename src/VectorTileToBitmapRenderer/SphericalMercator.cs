@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Drawing;
 
-namespace BruTile.Samples.VectorTileToBitmap
+namespace VectorTileToBitmapRenderer
 {
     public class SphericalMercator
     {

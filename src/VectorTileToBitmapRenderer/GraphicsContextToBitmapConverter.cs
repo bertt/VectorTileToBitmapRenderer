@@ -5,7 +5,7 @@ using OpenTK.Graphics;
 using OpenTK.Graphics.OpenGL;
 using PixelFormat = OpenTK.Graphics.OpenGL.PixelFormat;
 
-namespace BruTile.Samples.VectorTileToBitmap
+namespace VectorTileToBitmapRenderer
 {
     class GraphicsContextToBitmapConverter
     {

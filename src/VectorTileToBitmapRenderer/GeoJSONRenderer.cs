@@ -7,7 +7,7 @@ using GeoJSON.Net;
 using GeoJSON.Net.Feature;
 using GeoJSON.Net.Geometry;
 
-namespace BruTile.Samples.VectorTileToBitmap
+namespace VectorTileToBitmapRenderer
 {
     public class GeoJSONRenderer
     {

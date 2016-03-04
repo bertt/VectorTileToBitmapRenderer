@@ -1,7 +1,7 @@
 ﻿using System;
 using OpenTK.Graphics.ES20;
 
-namespace BruTile.Samples.VectorTileToBitmap
+namespace VectorTileToBitmapRenderer
 {
     internal class FrameBufferObjectHelper
     {

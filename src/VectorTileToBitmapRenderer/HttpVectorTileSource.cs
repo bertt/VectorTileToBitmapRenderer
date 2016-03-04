@@ -4,7 +4,6 @@ using System.IO;
 using System.Linq;
 using BruTile;
 using BruTile.Cache;
-using BruTile.Samples.VectorTileToBitmap;
 using BruTile.Web;
 using mapbox.vector.tile;
 
