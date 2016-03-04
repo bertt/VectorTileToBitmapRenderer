@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VectorTileToBitmapRenderer", "src\VectorTileToBitmapRenderer\VectorTileToBitmapRenderer.csproj", "{CD32D7AD-2B89-4E3A-B204-B9D2B179F3F5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{EE5731D0-11F9-4A36-867F-6AD1260048FF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{80B98CD5-CFD0-4BA7-A11F-96A9CAED5DAE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VectorTileSample", "samples\VectorTileSample\VectorTileSample.csproj", "{57D747AA-79C3-4F05-A165-33CCA6158C16}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CD32D7AD-2B89-4E3A-B204-B9D2B179F3F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD32D7AD-2B89-4E3A-B204-B9D2B179F3F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD32D7AD-2B89-4E3A-B204-B9D2B179F3F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD32D7AD-2B89-4E3A-B204-B9D2B179F3F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57D747AA-79C3-4F05-A165-33CCA6158C16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57D747AA-79C3-4F05-A165-33CCA6158C16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57D747AA-79C3-4F05-A165-33CCA6158C16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57D747AA-79C3-4F05-A165-33CCA6158C16}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{CD32D7AD-2B89-4E3A-B204-B9D2B179F3F5} = {EE5731D0-11F9-4A36-867F-6AD1260048FF}
+		{57D747AA-79C3-4F05-A165-33CCA6158C16} = {80B98CD5-CFD0-4BA7-A11F-96A9CAED5DAE}
+	EndGlobalSection
+EndGlobal
