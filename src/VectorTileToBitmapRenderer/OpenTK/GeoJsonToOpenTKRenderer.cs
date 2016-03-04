@@ -13,7 +13,7 @@ using StringName = OpenTK.Graphics.ES11.StringName;
 
 namespace VectorTileToBitmapRenderer
 {
-    public class GeoJSONToOpenTKRenderer
+    public class GeoJsonToOpenTKRenderer : IGeoJsonRenderer
     {
         private readonly int _pixelWidth;
         private readonly int _pixelHeight;
@@ -23,7 +23,7 @@ namespace VectorTileToBitmapRenderer
         private readonly float _extentHeight;
         private readonly object _syncRoot = new object();
 
-        public GeoJSONToOpenTKRenderer(int pixelWidth, int pixelHeight, double[] boundingBox)
+        public GeoJsonToOpenTKRenderer(int pixelWidth, int pixelHeight, double[] boundingBox)
         {
             _pixelWidth = pixelWidth;
             _pixelHeight = pixelHeight;

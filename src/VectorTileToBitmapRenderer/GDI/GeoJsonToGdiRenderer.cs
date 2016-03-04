@@ -9,7 +9,7 @@ using GeoJSON.Net.Geometry;
 
 namespace VectorTileToBitmapRenderer
 {
-    public class GeoJsonToGdiRenderer
+    public class GeoJsonToGdiRenderer : IGeoJsonRenderer
     {
         private readonly int _canvasWidth;
         private readonly int _canvasHeight;

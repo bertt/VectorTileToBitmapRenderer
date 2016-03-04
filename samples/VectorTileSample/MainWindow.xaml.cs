@@ -1,7 +1,6 @@
-﻿using BruTile;
+﻿using System.Windows;
 using BruTile.Predefined;
 using Mapsui.Layers;
-using Mapsui.UI.Xaml;
 using VectorTileToBitmapRenderer;
 
 namespace VectorTileSample
@@ -11,22 +10,41 @@ namespace VectorTileSample
     /// </summary>
     public partial class MainWindow
     {
+        readonly HttpVectorTileSource _httpVectorTileSource;
+        readonly TileLayer _vectorTileLayer;
         public MainWindow()
         {
             InitializeComponent();
-            var mapControl = new MapControl();
-            grid.Children.Add(mapControl);
 
-            mapControl.Map.Layers.Add(new TileLayer(KnownTileSources.Create()));
-            mapControl.Map.Layers.Add(new TileLayer(CreateVectorTileTileSource()));
+            MapControl.Map.Layers.Add(new TileLayer(KnownTileSources.Create()) { Name = "Openstreetmap"});
+
+            _httpVectorTileSource = CreateVectorTileTileSource();
+            _vectorTileLayer = new TileLayer(_httpVectorTileSource) { Opacity = 0.5, Name = "Mapzen vector tiles"};
+            MapControl.Map.Layers.Add(_vectorTileLayer);
+
+            MapsuiLayerList.Initialize(MapControl.Map.Layers);
         }
 
-        public ITileSource CreateVectorTileTileSource()
+        public HttpVectorTileSource CreateVectorTileTileSource()
         {
             return new HttpVectorTileSource(
                 new GlobalSphericalMercator(),
                 "https://vector.mapzen.com/osm/all/{z}/{x}/{y}.mvt?api_key=vector-tiles-LM25tq4",
                 name: "vector tile");
+        }
+
+        private void GDI_OnClick(object sender, RoutedEventArgs e)
+        {
+            _httpVectorTileSource.UseGdi = true;
+            _vectorTileLayer.ClearCache();
+            MapControl.Refresh();
+        }
+
+        private void OpenTK_OnClick(object sender, RoutedEventArgs e)
+        {
+            _httpVectorTileSource.UseGdi = false;
+            _vectorTileLayer.ClearCache();
+            MapControl.Refresh();
         }
     }
 }

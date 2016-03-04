@@ -11,7 +11,8 @@ namespace VectorTileToBitmapRenderer
 {
     public class HttpVectorTileSource : HttpTileSource
     {
-        public HttpVectorTileSource(ITileSchema tileSchema, string urlFormatter, IEnumerable<string> serverNodes = null, string apiKey = null, string name = null, IPersistentCache<byte[]> persistentCache = null, Func<Uri, byte[]> tileFetcher = null) : base(tileSchema, urlFormatter, serverNodes, apiKey, name, persistentCache, tileFetcher)
+        public HttpVectorTileSource(ITileSchema tileSchema, string urlFormatter, IEnumerable<string> serverNodes = null, string apiKey = null, string name = null, IPersistentCache<byte[]> persistentCache = null, Func<Uri, byte[]> tileFetcher = null) 
+            : base(tileSchema, urlFormatter, serverNodes, apiKey, name, persistentCache, tileFetcher)
         {
         }
 
@@ -19,14 +20,23 @@ namespace VectorTileToBitmapRenderer
         {
             var bytes = base.GetTile(tileInfo);
             var index = tileInfo.Index;
-            var layerInfos = VectorTileParser.Parse(new MemoryStream(bytes), index.Col, index.Row, Int32.Parse(index.Level));
+            var layerInfos = VectorTileParser.Parse(new MemoryStream(bytes), index.Col, index.Row, int.Parse(index.Level));
             var tileWidth = Schema.GetTileWidth(tileInfo.Index.Level);
             var tileHeight = Schema.GetTileHeight(tileInfo.Index.Level);
-            var geoJSONRenderer = new GeoJSONToOpenTKRenderer(tileWidth, tileHeight, ToGeoJSONArray(tileInfo.Extent));
+            var geoJSONRenderer = GetGeoJsonRenderer(tileInfo, tileWidth, tileHeight);
             return geoJSONRenderer.Render(layerInfos.Select(i => i.FeatureCollection));
         }
 
-        private double[] ToGeoJSONArray(Extent extent)
+        private IGeoJsonRenderer GetGeoJsonRenderer(TileInfo tileInfo, int tileWidth, int tileHeight)
+        {
+            if (UseGdi)
+                return new GeoJsonToGdiRenderer(tileWidth, tileHeight, ToGeoJSONArray(tileInfo.Extent));
+            return new GeoJsonToOpenTKRenderer(tileWidth, tileHeight, ToGeoJSONArray(tileInfo.Extent));
+        }
+
+        public bool UseGdi { get; set; } = true;
+        
+        private static double[] ToGeoJSONArray(Extent extent)
         {
             // GeoJSON.NET has no class for bounding boxes. It just holds them in a double array. 
             // The spec says it should first the lowest and then all the highest values for all axes:

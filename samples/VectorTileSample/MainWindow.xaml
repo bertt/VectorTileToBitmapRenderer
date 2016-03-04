@@ -5,9 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VectorTileSample"
         xmlns:xaml="clr-namespace:Mapsui.UI.Xaml;assembly=Mapsui.UI.Xaml"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
+        Title="MainWindow" Height="600" Width="800">
     <Grid x:Name="grid">
-        
+        <xaml:MapControl Name="MapControl"></xaml:MapControl>
+        <Border BorderBrush="White" Opacity="0.75" Margin="10" Background="White" BorderThickness="6" CornerRadius="2" VerticalAlignment="Top" HorizontalAlignment="Left">
+            <StackPanel Width="Auto" Height="Auto">
+                <RadioButton IsChecked="True" Margin="2,2,2,2" Content="GDI rendering" Width="Auto" Height="Auto" Click="GDI_OnClick"></RadioButton>
+                <RadioButton Content="OpenTK rendering" Margin="2,2,2,2" Width="Auto" Height="Auto" Click="OpenTK_OnClick"></RadioButton>
+            </StackPanel>
+        </Border>
+        <Border BorderBrush="White" Opacity="0.75" Margin="10" Background="White" BorderThickness="6" CornerRadius="2" VerticalAlignment="Top" HorizontalAlignment="Right">
+            <local:LayerList x:Name="MapsuiLayerList"></local:LayerList>
+        </Border>
     </Grid>
 </Window>

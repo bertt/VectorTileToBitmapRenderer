@@ -1,0 +1,30 @@
+﻿using System.Windows.Controls;
+using Mapsui;
+
+namespace VectorTileSample
+{
+    /// <summary>
+    /// Interaction logic for LayerList.xaml
+    /// </summary>
+    public partial class LayerList : UserControl
+    {
+        public LayerList()
+        {
+            InitializeComponent();
+        }
+        
+        public void Initialize(LayerCollection layers)
+        {
+            items.Children.Clear();
+
+            foreach (var layer in layers)
+            {
+                var item = new LayerListItem {LayerName = layer.Name};
+                item.Enabled = layer.Enabled;
+                item.LayerOpacity = layer.Opacity;
+                item.Layer = layer;
+                items.Children.Add(item);
+            }
+        }
+    }
+}
