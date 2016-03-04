@@ -2,6 +2,7 @@
 using BruTile;
 using BruTile.Predefined;
 using Mapsui.Layers;
+using Mapsui.UI.Xaml;
 using VectorTileToBitmapRenderer;
 
 namespace VectorTileSample
@@ -9,14 +10,17 @@ namespace VectorTileSample
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow 
+    public partial class MainWindow
     {
+        private MapControl _mapControl;
         public MainWindow()
         {
             InitializeComponent();
+            _mapControl = new MapControl();
+            grid.Children.Add(_mapControl);
 
             //MapControl.Map.Layers.Add(new TileLayer(KnownTileSources.Create()));
-            MapControl.Map.Layers.Add(new TileLayer(CreateVectorTileTileSource()));
+            _mapControl.Map.Layers.Add(new TileLayer(CreateVectorTileTileSource()));
         }
 
         public ITileSource CreateVectorTileTileSource()

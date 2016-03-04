@@ -5,11 +5,12 @@ using System.Linq;
 using BruTile;
 using BruTile.Cache;
 using BruTile.Samples.VectorTileToBitmap;
+using BruTile.Web;
 using mapbox.vector.tile;
 
 namespace VectorTileToBitmapRenderer
 {
-    public class HttpVectorTileSource : HttpTileSourceCustom
+    public class HttpVectorTileSource : HttpTileSource
     {
         public HttpVectorTileSource(ITileSchema tileSchema, string urlFormatter, IEnumerable<string> serverNodes = null, string apiKey = null, string name = null, IPersistentCache<byte[]> persistentCache = null, Func<Uri, byte[]> tileFetcher = null) : base(tileSchema, urlFormatter, serverNodes, apiKey, name, persistentCache, tileFetcher)
         {
