@@ -16,7 +16,7 @@ namespace VectorTileSample
         {
             InitializeComponent();
 
-            MapControl.Map.Layers.Add(new TileLayer(KnownTileSources.Create()) { Name = "Openstreetmap"});
+            MapControl.Map.Layers.Add(new TileLayer(KnownTileSources.Create()) { Name = "OpenStreetMap"});
 
             _httpVectorTileSource = CreateVectorTileTileSource();
             _vectorTileLayer = new TileLayer(_httpVectorTileSource) { Opacity = 0.5, Name = "Mapzen vector tiles"};
