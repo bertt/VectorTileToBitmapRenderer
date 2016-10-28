@@ -29,7 +29,7 @@ namespace VectorTileSample
         {
             return new HttpVectorTileSource(
                 new GlobalSphericalMercator(),
-                "https://vector.mapzen.com/osm/all/{z}/{x}/{y}.mvt?api_key=vector-tiles-LM25tq4",
+                "https://tile.mapzen.com/mapzen/vector/v1/all/{z}/{x}/{y}.mvt?api_key=mapzen-tnjqimH",
                 name: "vector tile");
         }
 

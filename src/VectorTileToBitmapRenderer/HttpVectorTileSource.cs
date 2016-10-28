@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
 using BruTile;
 using BruTile.Cache;
 using BruTile.Web;
@@ -11,9 +13,18 @@ namespace VectorTileToBitmapRenderer
 {
     public class HttpVectorTileSource : HttpTileSource
     {
-        public HttpVectorTileSource(ITileSchema tileSchema, string urlFormatter, IEnumerable<string> serverNodes = null, string apiKey = null, string name = null, IPersistentCache<byte[]> persistentCache = null, Func<Uri, byte[]> tileFetcher = null) 
-            : base(tileSchema, urlFormatter, serverNodes, apiKey, name, persistentCache, tileFetcher)
+        public HttpVectorTileSource(ITileSchema tileSchema, string urlFormatter, IEnumerable<string> serverNodes = null, string apiKey = null, string name = null, IPersistentCache<byte[]> persistentCache = null) 
+            : base(tileSchema, urlFormatter, serverNodes, apiKey, name, persistentCache, FetchTile)
         {
+        }
+
+        private static byte[] FetchTile(Uri url)
+        {
+            var gzipWebClient = new HttpClient(new HttpClientHandler()
+            {
+                AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate
+            });
+            return gzipWebClient.GetByteArrayAsync(url).Result;
         }
 
         public override byte[] GetTile(TileInfo tileInfo)
@@ -34,7 +45,7 @@ namespace VectorTileToBitmapRenderer
             return new GeoJsonToOpenTKRenderer(tileWidth, tileHeight, ToGeoJSONArray(tileInfo.Extent));
         }
 
-        public bool UseGdi { get; set; } = true;
+        public bool UseGdi { private get; set; } = true;
         
         private static double[] ToGeoJSONArray(Extent extent)
         {
