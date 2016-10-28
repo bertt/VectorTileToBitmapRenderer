@@ -10,6 +10,7 @@ using ClearBufferMask = OpenTK.Graphics.ES20.ClearBufferMask;
 using GL = OpenTK.Graphics.ES11.GL;
 using MatrixMode = OpenTK.Graphics.ES11.MatrixMode;
 using StringName = OpenTK.Graphics.ES11.StringName;
+#pragma warning disable 618 // Not obsolte for Android. It needs to cross compile
 
 namespace VectorTileToBitmapRenderer
 {
@@ -38,6 +39,7 @@ namespace VectorTileToBitmapRenderer
             lock (_syncRoot)
             {
                 // There needs to be a gamewindow even though we don't write to screen. It is created but not used explicitly in our code.
+                // ReSharper disable once UnusedVariable
                 using (var gameWindow = new GameWindow(_pixelWidth, _pixelHeight))
                 {
                     if (!GL.GetString(StringName.Extensions).Contains("GL_EXT_framebuffer_object"))

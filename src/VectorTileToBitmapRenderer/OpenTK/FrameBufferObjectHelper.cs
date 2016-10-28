@@ -1,9 +1,10 @@
 ﻿using System;
 using OpenTK.Graphics.ES20;
+#pragma warning disable 618 // Not obsolte for Android. It needs to cross compile
 
 namespace VectorTileToBitmapRenderer
 {
-    internal class FrameBufferObjectHelper
+    internal static class FrameBufferObjectHelper
     {
         public static void StopFrameBufferObject()
         {

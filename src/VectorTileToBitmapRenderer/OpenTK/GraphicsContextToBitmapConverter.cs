@@ -7,7 +7,7 @@ using PixelFormat = OpenTK.Graphics.OpenGL.PixelFormat;
 
 namespace VectorTileToBitmapRenderer
 {
-    class GraphicsContextToBitmapConverter
+    static class GraphicsContextToBitmapConverter
     {
         public static byte[] ToBitmap(int width, int height)
         {

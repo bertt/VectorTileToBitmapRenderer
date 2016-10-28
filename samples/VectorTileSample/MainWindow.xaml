@@ -7,7 +7,7 @@
         xmlns:xaml="clr-namespace:Mapsui.UI.Xaml;assembly=Mapsui.UI.Xaml"
         mc:Ignorable="d" WindowStartupLocation="CenterScreen"
         Title="MainWindow" Height="600" Width="800">
-    <Grid x:Name="grid">
+    <Grid x:Name="Grid">
         <xaml:MapControl Name="MapControl"></xaml:MapControl>
         <Border BorderBrush="White" Opacity="0.75" Margin="10" Background="White" BorderThickness="6" CornerRadius="2" VerticalAlignment="Top" HorizontalAlignment="Left">
             <StackPanel Width="Auto" Height="Auto">
