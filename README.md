@@ -11,6 +11,6 @@ It uses [mapbox-vector-tile-cs](https://github.com/bertt/mapbox-vector-tile-cs) 
 * Use vector tile style
 
 ## Sample
-The repo contains a sample of the awasome psychedelic tile renderer which has value all of its own :)
+The repo contains a sample of the awesome psychedelic tile renderer which has value all of its own :)
 
 ![Alt text](/docs/psychedelic-tiles.png?raw=true "Optional Title")
