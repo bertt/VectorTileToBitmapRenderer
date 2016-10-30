@@ -85,7 +85,7 @@ namespace VectorTileToBitmapRenderer
             return result.ToArray();
         }
 
-        public static byte[] ToBytes(Image img)
+        private static byte[] ToBytes(Image img)
         {
             using (var stream = new MemoryStream())
             {
