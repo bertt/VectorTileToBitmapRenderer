@@ -8,6 +8,7 @@ using BruTile;
 using BruTile.Cache;
 using BruTile.Web;
 using mapbox.vector.tile;
+using mapbox.vector.tile.ExtensionMethods;
 
 namespace VectorTileToBitmapRenderer
 {
@@ -31,11 +32,11 @@ namespace VectorTileToBitmapRenderer
         {
             var bytes = base.GetTile(tileInfo);
             var index = tileInfo.Index;
-            var layerInfos = VectorTileParser.Parse(new MemoryStream(bytes), index.Col, index.Row, int.Parse(index.Level));
+            var layerInfos = VectorTileParser.Parse(new MemoryStream(bytes));
             var tileWidth = Schema.GetTileWidth(tileInfo.Index.Level);
             var tileHeight = Schema.GetTileHeight(tileInfo.Index.Level);
             var geoJSONRenderer = GetGeoJsonRenderer(tileInfo, tileWidth, tileHeight);
-            return geoJSONRenderer.Render(layerInfos.Select(i => i.FeatureCollection));
+            return geoJSONRenderer.Render(layerInfos.Select(i => i.ToGeoJSON(index.Col, index.Row, int.Parse(index.Level))));
         }
 
         private IGeoJsonRenderer GetGeoJsonRenderer(TileInfo tileInfo, int tileWidth, int tileHeight)
