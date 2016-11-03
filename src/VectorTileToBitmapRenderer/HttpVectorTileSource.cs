@@ -7,8 +7,7 @@ using System.Net.Http;
 using BruTile;
 using BruTile.Cache;
 using BruTile.Web;
-using mapbox.vector.tile;
-using mapbox.vector.tile.ExtensionMethods;
+using Mapbox.Vector.Tile;
 
 namespace VectorTileToBitmapRenderer
 {
