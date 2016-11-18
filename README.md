@@ -1,5 +1,5 @@
 # VectorTileToBitmapRenderer 
-Renders vector tiles to PNGs. This makes it easy to add a vector tile source to a client that has bitmap tile support. It limits the possibilities of direct vector tile rendering. It is still possible to choose a custom styles though.
+Renders vector tiles to PNGs. This makes it easy to render a vector tile in a client that is capable of bitmap rendering. It is not possible to draw the vectors directly on your clients canvas which will reduce quality in some cases. It is however still possible to choose the styling used to render to bitmap.
 
 It uses [mapbox-vector-tile-cs](https://github.com/bertt/mapbox-vector-tile-cs) to parse vector tiles. This turns is into [GeoJSON.NET](https://github.com/GeoJSON-Net/GeoJSON.Net) objects.
 
