@@ -12,7 +12,6 @@
         <Border BorderBrush="White" Opacity="0.75" Margin="10" Background="White" BorderThickness="6" CornerRadius="2" VerticalAlignment="Top" HorizontalAlignment="Left">
             <StackPanel Width="Auto" Height="Auto">
                 <RadioButton IsChecked="True" Margin="2,2,2,2" Content="GDI rendering" Width="Auto" Height="Auto" Click="GDI_OnClick"></RadioButton>
-                <RadioButton Content="OpenTK rendering" Margin="2,2,2,2" Width="Auto" Height="Auto" Click="OpenTK_OnClick"></RadioButton>
             </StackPanel>
         </Border>
         <Border BorderBrush="White" Opacity="0.75" Margin="10" Background="White" BorderThickness="6" CornerRadius="2" VerticalAlignment="Top" HorizontalAlignment="Right">

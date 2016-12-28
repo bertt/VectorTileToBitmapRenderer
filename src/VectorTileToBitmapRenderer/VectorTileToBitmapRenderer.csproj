@@ -59,8 +59,14 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="Terrain.Tile, Version=0.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\quantized-mesh-tile.0.1.1\lib\netstandard1.1\Terrain.Tile.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CesiumTerrainTileSource.cs" />
+    <Compile Include="GDI\CesiumTerrainToGdiRenderer.cs" />
     <Compile Include="OpenTK\FrameBufferObjectHelper.cs" />
     <Compile Include="GDI\GeoJsonToGdiRenderer.cs" />
     <Compile Include="OpenTK\GeoJsonToOpenTKRenderer.cs" />
