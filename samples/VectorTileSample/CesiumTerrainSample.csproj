@@ -135,9 +135,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\src\VectorTileToBitmapRenderer\VectorTileToBitmapRenderer.csproj">
+    <ProjectReference Include="..\..\src\VectorTileToBitmapRenderer\CesiumTerrainTileToBitmapRenderer.csproj">
       <Project>{cd32d7ad-2b89-4e3a-b204-b9d2b179f3f5}</Project>
-      <Name>VectorTileToBitmapRenderer</Name>
+      <Name>CesiumTerrainTileToBitmapRenderer</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

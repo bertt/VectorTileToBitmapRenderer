@@ -38,13 +38,6 @@ namespace VectorTileToBitmapRenderer
             return cesiumTerrainToGdiRenderer.Render(triangles);
         }
 
-        private IGeoJsonRenderer GetGeoJsonRenderer(TileInfo tileInfo, int tileWidth, int tileHeight)
-        {
-            if (UseGdi)
-                return new GeoJsonToGdiRenderer(tileWidth, tileHeight, ToGeoJSONArray(tileInfo.Extent));
-            return new GeoJsonToOpenTKRenderer(tileWidth, tileHeight, ToGeoJSONArray(tileInfo.Extent));
-        }
-
         public bool UseGdi { private get; set; } = true;
 
         private static double[] ToGeoJSONArray(Extent extent)

@@ -17,10 +17,7 @@ namespace VectorTileSample
             InitializeComponent();
 
             MapControl.Map.Layers.Add(new TileLayer(KnownTileSources.Create()) { Name = "OpenStreetMap"});
-
-            _cesiumTerrainTileSource = CreateCesiumTerrainTileTileSource();
             MapsuiLayerList.Initialize(MapControl.Map.Layers);
-
             _cesiumTerrainTileSource = CreateCesiumTerrainTileTileSource();
             _cesiumTerrainTileLayer = new TileLayer(_cesiumTerrainTileSource) { Opacity = 0.5, Name = "Cesium Terrain tiles" };
             MapControl.Map.Layers.Add(_cesiumTerrainTileLayer);
@@ -35,17 +32,9 @@ namespace VectorTileSample
                 name: "cesium terrain tile");
         }
 
-
         private void GDI_OnClick(object sender, RoutedEventArgs e)
         {
             _cesiumTerrainTileSource.UseGdi = true;
-            _cesiumTerrainTileLayer.ClearCache();
-            MapControl.Refresh();
-        }
-
-        private void OpenTK_OnClick(object sender, RoutedEventArgs e)
-        {
-            _cesiumTerrainTileSource.UseGdi = false;
             _cesiumTerrainTileLayer.ClearCache();
             MapControl.Refresh();
         }

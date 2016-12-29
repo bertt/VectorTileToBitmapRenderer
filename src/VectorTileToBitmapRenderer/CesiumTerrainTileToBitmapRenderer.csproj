@@ -34,21 +34,6 @@
       <HintPath>..\..\packages\BruTile.0.16.0\lib\net40\BruTile.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="GeoJSON.Net, Version=0.1.47.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\GeoJSON.Net.0.1.47\lib\portable-net40+sl5+wp80+win8+wpa81\GeoJSON.Net.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Mapbox.Vector.Tile, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\mapbox-vector-tile.3.1.0\lib\Mapbox.Vector.Tile.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="OpenTK, Version=1.1.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\OpenTK.1.1.2225.0\lib\net20\OpenTK.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="protobuf-net">
-      <HintPath>..\..\packages\protobuf-net.2.0.0.668\lib\net40\protobuf-net.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -67,17 +52,10 @@
   <ItemGroup>
     <Compile Include="CesiumTerrainTileSource.cs" />
     <Compile Include="GDI\CesiumTerrainToGdiRenderer.cs" />
-    <Compile Include="OpenTK\FrameBufferObjectHelper.cs" />
-    <Compile Include="GDI\GeoJsonToGdiRenderer.cs" />
-    <Compile Include="OpenTK\GeoJsonToOpenTKRenderer.cs" />
-    <Compile Include="OpenTK\GraphicsContextToBitmapConverter.cs" />
-    <Compile Include="HttpVectorTileSource.cs" />
-    <Compile Include="IGeoJSONRenderer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SphericalMercator.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="OpenTK.dll.config" />
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
